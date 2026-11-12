@@ -38,4 +38,6 @@ Vercel settings: Framework preset **Other**, no build command, no output directo
 - Keep `og.jpg` at 1200×630 and under 300 KB, or WhatsApp may skip it.
 - If the domain changes (e.g. to alemu.xyz), update `canonical`, `og:url`, `og:image`, `og:image:secure_url` and `twitter:image`.
 
-**Refreshing a stale preview.** WhatsApp and LinkedIn cache previews. After changing the image or text, paste the URL into https://developers.facebook.com/tools/debug and click **Scrape Again**. A chat that already shared the link may keep the old preview; sharing `https://alemuxyz.vercel.app/?v=2` forces a fresh one.
+Preview locally: `npx serve .` (or just open `index.html`).
+
+Made by the super gangster @manojpandey
