@@ -1,13 +1,41 @@
-# Michael Alemu
+# alemu.xyz
 
-Personal link page. Plain static HTML, no build step.
+Personal link page for Michael Alemu. Static HTML, no build step, no dependencies.
 
-- `index.html` – the page
-- `photo.jpg` – hero photo
+Live: https://alemuxyz.vercel.app
+
+## Files
+
+| File | What it is |
+| --- | --- |
+| `index.html` | The whole page: markup, styles, fonts (Google Fonts) |
+| `photo.jpg` | Hero photo at the top of the page |
+| `og.jpg` | 1200×630 link-preview image for WhatsApp, LinkedIn, X, iMessage |
+
+## Run locally
+
+```bash
+npx serve .
+```
+
+Then open http://localhost:3000. Opening `index.html` directly in a browser also works.
 
 ## Deploy
 
-Push this folder to a GitHub repo, then import it in Vercel.
-Framework preset: **Other**. Leave build command and output directory empty.
+Vercel deploys `main` automatically. Merge to `main` and it's live within a minute.
+Vercel settings: Framework preset **Other**, no build command, no output directory.
 
-Preview locally: `npx serve .` (or just open `index.html`).
+## Common edits
+
+**Text and links.** Everything is in `index.html`:
+- Name, job, city, languages: the `<ul class="facts">` block
+- LinkedIn and Instagram: the `<nav class="links">` block
+
+**Hero photo.** Replace `photo.jpg`. Any landscape image works; it is cropped to roughly 3:2 and shown in black and white.
+
+**Link preview.** The `og:` and `twitter:` meta tags near the top of `index.html` control what chats show when the link is shared.
+- `og:image` must be an absolute `https://` URL.
+- Keep `og.jpg` at 1200×630 and under 300 KB, or WhatsApp may skip it.
+- If the domain changes (e.g. to alemu.xyz), update `canonical`, `og:url`, `og:image`, `og:image:secure_url` and `twitter:image`.
+
+**Refreshing a stale preview.** WhatsApp and LinkedIn cache previews. After changing the image or text, paste the URL into https://developers.facebook.com/tools/debug and click **Scrape Again**. A chat that already shared the link may keep the old preview; sharing `https://alemuxyz.vercel.app/?v=2` forces a fresh one.
